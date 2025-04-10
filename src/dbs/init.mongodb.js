@@ -1,8 +1,8 @@
 "use strict";
 
 const mongoose = require("mongoose");
-const connectionString =
-  "mongodb+srv://ngocduy14062003:Phamngocduy14062003@ecommercebackend.i555csu.mongodb.net/?retryWrites=true&w=majority&appName=eCommerceBackend";
+const { name, password } = require("../configs/config.mongodb");
+const connectionString = `mongodb+srv://${name}:${password}@ngocduy-cnpm.bssbojk.mongodb.net/EComerce_backend`;
 const { countConnect } = require("../helpers/check.connect");
 class database {
   constructor() {
@@ -17,6 +17,7 @@ class database {
     mongoose
       .connect(connectionString, { maxPoolSize: 50 })
       .then((_) => {
+        // console.log(connectionString);
         console.log("MongoDB connected");
         countConnect();
       })
