@@ -1,12 +1,14 @@
-const StatusCode = {
-  CONFLICT: 409,
-  FORBIDDEN: 403,
-};
+// const StatusCode = {
+//   CONFLICT: 409,
+//   FORBIDDEN: 403,
+// };
 
-const ReasonStatusCode = {
-  CONFLICT: "Bad request error",
-  FORBIDDEN: "Bad Request error",
-};
+// const ReasonStatusCode = {
+//   CONFLICT: "Bad request error",
+//   FORBIDDEN: "Bad Request error",
+// };
+
+const { StatusCodes, ReasonPhrases } = require("../utils/httpStatusCode");
 
 class ErrorResponse extends Error {
   constructor(message, statusCode) {
@@ -17,16 +19,24 @@ class ErrorResponse extends Error {
 
 class ConflicRequestError extends ErrorResponse {
   constructor(
-    message = ReasonStatusCode.CONFLICT,
-    statusCode = StatusCode.CONFLICT
+    message = ReasonPhrases.CONFLICT,
+    statusCode = StatusCodes.CONFLICT
   ) {
     super(message, statusCode);
   }
 }
 class BadRequestError extends ErrorResponse {
   constructor(
-    message = ReasonStatusCode.FORBIDDEN,
-    statusCode = StatusCode.FORBIDDEN
+    message = ReasonPhrases.FORBIDDEN,
+    statusCode = StatusCodes.FORBIDDEN
+  ) {
+    super(message, statusCode);
+  }
+}
+class AuthFailureError extends ErrorResponse {
+  constructor(
+    message = ReasonPhrases.UNAUTHORIZED,
+    statusCode = StatusCodes.UNAUTHORIZED
   ) {
     super(message, statusCode);
   }
@@ -34,4 +44,5 @@ class BadRequestError extends ErrorResponse {
 module.exports = {
   ConflicRequestError,
   BadRequestError,
+  AuthFailureError,
 };

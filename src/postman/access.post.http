@@ -6,6 +6,18 @@ x-api-key: f470e0cf151674b21c7e373bfbb82dc807a9adf2c11a2c987bef31559fa49b9369856
 
 {
     "name": "duyngoc",
-    "email": "ngocduy04@gmail.com",
+    "email": "ngocduy08@gmail.com",
+    "password": "123456"
+}
+
+###
+# @url_dev = http://localhost:3055/v1/api/
+
+POST {{url_dev}}shop/login
+Content-Type: application/json
+x-api-key: f470e0cf151674b21c7e373bfbb82dc807a9adf2c11a2c987bef31559fa49b9369856b2bfe4ec2eb8fd79b904afe2c1b469e6bb47ad6606a63e1e2c9be92456f
+
+{
+    "email": "ngocduy07@gmail.com",
     "password": "123456"
 }
