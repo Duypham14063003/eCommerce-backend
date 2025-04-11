@@ -5,6 +5,7 @@ const KeyTokenService = require("./keyToken.service");
 const { createTokenPair } = require("../auth/authUtils");
 const { getInfoData } = require("../utils");
 const { BadRequestError } = require("../core/error.res");
+const { CREATED } = require("../core/success.res");
 const RoleShop = {
   SHOP: "SHOP",
   WRITER: "WRITER",
