@@ -18,6 +18,18 @@ Content-Type: application/json
 x-api-key: f470e0cf151674b21c7e373bfbb82dc807a9adf2c11a2c987bef31559fa49b9369856b2bfe4ec2eb8fd79b904afe2c1b469e6bb47ad6606a63e1e2c9be92456f
 
 {
-    "email": "ngocduy07@gmail.com",
+    "email": "ngocduy08@gmail.com",
     "password": "123456"
+}
+
+###
+
+POST {{url_dev}}shop/logout
+Content-Type: application/json
+x-api-key: f470e0cf151674b21c7e373bfbb82dc807a9adf2c11a2c987bef31559fa49b9369856b2bfe4ec2eb8fd79b904afe2c1b469e6bb47ad6606a63e1e2c9be92456f
+x-client-id: 67f958ec32f6de3241fa3173
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2Y5NThlYzMyZjZkZTMyNDFmYTMxNzMiLCJlbWFpbCI6Im5nb2NkdXkwOEBnbWFpbC5jb20iLCJpYXQiOjE3NDU1MjI1MzAsImV4cCI6MTc0NTY5NTMzMH0.6EHSsR2jkB7nC5qEFGSGXgKbG0bptMkFmJpS7G70ZUo
+
+{
+   
 }
