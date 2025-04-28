@@ -13,6 +13,11 @@ const findByEmail = async ({
   return await shopModel.findOne({ email }).select(select).lean();
 };
 
+const findById = async (id) => {
+  return await shopModel.findById({ _id: id }).lean();
+};
+
 module.exports = {
   findByEmail,
+  findById,
 };
