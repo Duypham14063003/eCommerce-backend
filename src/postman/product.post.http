@@ -21,3 +21,28 @@ authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2Y5NThlYzMy
     "material": "denim"
   }
 }
+
+
+@url_dev = http://localhost:3055/v1/api/product
+
+### create product Electronics
+POST {{url_dev}}/create
+Content-Type: application/json
+x-api-key: f470e0cf151674b21c7e373bfbb82dc807a9adf2c11a2c987bef31559fa49b9369856b2bfe4ec2eb8fd79b904afe2c1b469e6bb47ad6606a63e1e2c9be92456f
+x-client-id: 67f958ec32f6de3241fa3173
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2Y5NThlYzMyZjZkZTMyNDFmYTMxNzMiLCJlbWFpbCI6Im5nb2NkdXkwOEBnbWFpbC5jb20iLCJpYXQiOjE3NDU5ODk0NDcsImV4cCI6MTc0NjE2MjI0N30.u1Ei7iC3maeALtwHFh76UNmR-wTKVZULjOxPxMltXm8
+
+{
+  "product_name": "Iphone 14",
+  "product_description": "new product",
+  "product_price": 100,
+  "product_type": "Electronics",
+  "product_thumb": "product_thumb",
+  "product_quantity": 5,
+  "product_attributes": {
+    "manufacturer": "Apple",
+    "model": "Iphone 14",
+    "color": "black"
+  }
+}
+
