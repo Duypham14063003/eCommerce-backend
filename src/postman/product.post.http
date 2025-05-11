@@ -1,5 +1,5 @@
 @url_dev = http://localhost:3055/v1/api/product
-
+@jwt = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2Y5NThlYzMyZjZkZTMyNDFmYTMxNzMiLCJlbWFpbCI6Im5nb2NkdXkwOEBnbWFpbC5jb20iLCJpYXQiOjE3NDY3NzYxNjEsImV4cCI6MTc0Njk0ODk2MX0.tVjivfhW2oh55gjhYbnpvgdTByCZa9mPWqOljygqnRA
 ###
 POST {{url_dev}}/create
 Content-Type: application/json
@@ -23,26 +23,73 @@ authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2Y5NThlYzMy
 }
 
 
-@url_dev = http://localhost:3055/v1/api/product
+# @url_dev = http://localhost:3055/v1/api/product
 
 ### create product Electronics
 POST {{url_dev}}/create
 Content-Type: application/json
 x-api-key: f470e0cf151674b21c7e373bfbb82dc807a9adf2c11a2c987bef31559fa49b9369856b2bfe4ec2eb8fd79b904afe2c1b469e6bb47ad6606a63e1e2c9be92456f
 x-client-id: 67f958ec32f6de3241fa3173
-authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2Y5NThlYzMyZjZkZTMyNDFmYTMxNzMiLCJlbWFpbCI6Im5nb2NkdXkwOEBnbWFpbC5jb20iLCJpYXQiOjE3NDU5ODk0NDcsImV4cCI6MTc0NjE2MjI0N30.u1Ei7iC3maeALtwHFh76UNmR-wTKVZULjOxPxMltXm8
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2Y5NThlYzMyZjZkZTMyNDFmYTMxNzMiLCJlbWFpbCI6Im5nb2NkdXkwOEBnbWFpbC5jb20iLCJpYXQiOjE3NDY2MDExNDksImV4cCI6MTc0Njc3Mzk0OX0.roJeyI9UGh2FVk13gbGfZv_IXYxawK9jGdxCivFQCOk
 
 {
-  "product_name": "Iphone 14",
-  "product_description": "new product",
-  "product_price": 100,
-  "product_type": "Electronics",
-  "product_thumb": "product_thumb",
-  "product_quantity": 5,
+  "product_name": "Băng Quấn Bảo Vệ Khuỷu Tay Co Giãn Tốt Tiện Dụng Khi Chơi Thể Thao Cho Nam",
+  "product_thumb": "https://salt.tikicdn.com/cache/100x100/ts/product/d6/4f/c3/71f089390f605d172b54edf6aaa1877e.jpg.webp",
+  "product_description": "Áo thun nam MRM kiểu dáng Regular fit tôn dáng cơ thể, làm nổi bật form người mặc thêm nam tính, khỏe khoắn mà vẫn thoải mái vận động.",
+  "product_price": 1234.000,
+  "product_quantity": 23,
+  "product_type": "Clothing",
   "product_attributes": {
-    "manufacturer": "Apple",
-    "model": "Iphone 14",
-    "color": "black"
+    "brand": "MRM VietNam China",
+    "size": "XL",
+    "material": "Thun"
   }
 }
 
+### get all product drafts for shop
+GET {{url_dev}}/drafts/all
+Content-Type: application/json
+x-api-key: f470e0cf151674b21c7e373bfbb82dc807a9adf2c11a2c987bef31559fa49b9369856b2bfe4ec2eb8fd79b904afe2c1b469e6bb47ad6606a63e1e2c9be92456f
+x-client-id: 67f958ec32f6de3241fa3173
+authorization: {{jwt}}
+
+{
+}
+
+### get all product published for shop
+GET {{url_dev}}/published/all
+Content-Type: application/json
+x-api-key: f470e0cf151674b21c7e373bfbb82dc807a9adf2c11a2c987bef31559fa49b9369856b2bfe4ec2eb8fd79b904afe2c1b469e6bb47ad6606a63e1e2c9be92456f
+x-client-id: 67f958ec32f6de3241fa3173
+authorization: {{jwt}}
+
+{
+}
+### publish product for shop by id product
+@id =681b04efe1db8b3949b1aa12
+POST {{url_dev}}/publish/{{id}}
+Content-Type: application/json
+x-api-key: f470e0cf151674b21c7e373bfbb82dc807a9adf2c11a2c987bef31559fa49b9369856b2bfe4ec2eb8fd79b904afe2c1b469e6bb47ad6606a63e1e2c9be92456f
+x-client-id: 67f958ec32f6de3241fa3173
+authorization: {{jwt}}
+
+{
+}
+
+### Unpublish product for shop by id product
+POST {{url_dev}}/unpublish/{{id}}
+Content-Type: application/json
+x-api-key: f470e0cf151674b21c7e373bfbb82dc807a9adf2c11a2c987bef31559fa49b9369856b2bfe4ec2eb8fd79b904afe2c1b469e6bb47ad6606a63e1e2c9be92456f
+x-client-id: 67f958ec32f6de3241fa3173
+authorization: {{jwt}}
+
+{
+}
+
+### Search product by name
+GET {{url_dev}}/search/bang quan
+Content-Type: application/json
+x-api-key: f470e0cf151674b21c7e373bfbb82dc807a9adf2c11a2c987bef31559fa49b9369856b2bfe4ec2eb8fd79b904afe2c1b469e6bb47ad6606a63e1e2c9be92456f
+
+{
+}

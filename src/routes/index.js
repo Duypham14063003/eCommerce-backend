@@ -6,8 +6,8 @@ router.use(apiKey);
 //check permission
 router.use(permission("0000"));
 //sign up
-router.use("/v1/api", require("./access/index"));
 router.use("/v1/api/product", require("./product"));
+router.use("/v1/api", require("./access/index"));
 // handling error
 // hamf middleware
 router.use((req, res, next) => {
