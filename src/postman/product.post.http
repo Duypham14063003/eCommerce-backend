@@ -1,14 +1,14 @@
 @url_dev = http://localhost:3055/v1/api/product
-@jwt = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2Y5NThlYzMyZjZkZTMyNDFmYTMxNzMiLCJlbWFpbCI6Im5nb2NkdXkwOEBnbWFpbC5jb20iLCJpYXQiOjE3NDczMzE0MzAsImV4cCI6MTc0NzUwNDIzMH0.IN2VSJn1jfBeb-vjMCniON4VahOskUBRcsoJMXVSt14
+@jwt = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2Y5NThlYzMyZjZkZTMyNDFmYTMxNzMiLCJlbWFpbCI6Im5nb2NkdXkwOEBnbWFpbC5jb20iLCJpYXQiOjE3NDc0ODA5NzgsImV4cCI6MTc0NzY1Mzc3OH0.GEL2SPbZpbRhSxXIrnE2VUDyoCoPJNb2cjTQ0CPv5zk
 ###
 POST {{url_dev}}/create
 Content-Type: application/json
 x-api-key: f470e0cf151674b21c7e373bfbb82dc807a9adf2c11a2c987bef31559fa49b9369856b2bfe4ec2eb8fd79b904afe2c1b469e6bb47ad6606a63e1e2c9be92456f
 x-client-id: 67f958ec32f6de3241fa3173
-authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2Y5NThlYzMyZjZkZTMyNDFmYTMxNzMiLCJlbWFpbCI6Im5nb2NkdXkwOEBnbWFpbC5jb20iLCJpYXQiOjE3NDU5ODk0NDcsImV4cCI6MTc0NjE2MjI0N30.u1Ei7iC3maeALtwHFh76UNmR-wTKVZULjOxPxMltXm8
+authorization: {{jwt}}
 
 {
-  "product_name": "New jean",
+  "product_name": "Áo sơ mi nam tay ngắn",
   "product_description": "High quality",
   "product_price": 100,
   "product_shop": "67f958ec32f6de3241fa3173",
@@ -16,7 +16,7 @@ authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2Y5NThlYzMy
   "product_thumb": "product_thumb",
   "product_quantity": 100,
   "product_attributes": {
-    "brand": "Levis",
+    "brand": "LV",
     "size": "M",
     "material": "denim"
   }
@@ -123,7 +123,7 @@ authorization: {{jwt}}
 {
     "product_type": "Clothing",
     "product_attributes": {
-      "brand": "MRM VietNam 001"
+      "brand": "MRM VietNam 0010"
     },
     "product_name": "Băng Quấn Bảo Vệ Khuỷu Tay Co Giãn Tốt Tiện Dụng Khi Chơi Thể Thao Cho Nam",
     "product_price": null
