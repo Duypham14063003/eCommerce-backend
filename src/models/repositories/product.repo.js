@@ -1,5 +1,7 @@
-const { product, clothing, electronic } = require("../product.model");
+const { findById } = require("../keytoken.model");
+const { clothing, electronic, product } = require("../product.model");
 const { Types } = require("mongoose");
+const { unGetSelectData } = require("../../utils/index");
 
 const findAllDraftProducts = async ({ query, limit, skip }) => {
   return queryAllProductsShop({ query, limit, skip });
@@ -85,10 +87,49 @@ const searchProductByUser = async (keySearch) => {
   return result; // Ensure the function returns the result
 };
 
+const findAllProduct = async ({ limit, sort, page, filter, select }) => {
+  const skip = (page - 1) * limit;
+  const sortBy = sort === "ctime" ? { _id: -1 } : { _id: 1 };
+  const products = await product
+    .find(filter)
+    .collation({ locale: "en", strength: 2 })
+    .sort(sortBy)
+    .limit(limit)
+    .skip(skip)
+    .select(select)
+    .exec();
+  return products;
+};
+
+const updateProductById = async ({
+  productId,
+  bodyUpdate,
+  model,
+  isNew = true,
+}) => {
+  return await model
+    .findByIdAndUpdate(productId, bodyUpdate, {
+      new: isNew,
+    })
+    .collation({ locale: "en", strength: 2 });
+};
+
+const findProduct = async ({ product_id, unSelect }) => {
+  const productdetail = await product
+    .findById(product_id)
+    .collation({ locale: "en", strength: 2 })
+    .select(unGetSelectData(unSelect));
+
+  return productdetail;
+};
+
 module.exports = {
   findAllDraftProducts,
   publishProductByShop,
   findAllPublishForShop,
   unPublishProductByShop,
   searchProductByUser,
+  findAllProduct,
+  findProduct,
+  updateProductById,
 };

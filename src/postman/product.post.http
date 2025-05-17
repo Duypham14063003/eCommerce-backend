@@ -1,5 +1,5 @@
 @url_dev = http://localhost:3055/v1/api/product
-@jwt = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2Y5NThlYzMyZjZkZTMyNDFmYTMxNzMiLCJlbWFpbCI6Im5nb2NkdXkwOEBnbWFpbC5jb20iLCJpYXQiOjE3NDY3NzYxNjEsImV4cCI6MTc0Njk0ODk2MX0.tVjivfhW2oh55gjhYbnpvgdTByCZa9mPWqOljygqnRA
+@jwt = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2Y5NThlYzMyZjZkZTMyNDFmYTMxNzMiLCJlbWFpbCI6Im5nb2NkdXkwOEBnbWFpbC5jb20iLCJpYXQiOjE3NDczMzE0MzAsImV4cCI6MTc0NzUwNDIzMH0.IN2VSJn1jfBeb-vjMCniON4VahOskUBRcsoJMXVSt14
 ###
 POST {{url_dev}}/create
 Content-Type: application/json
@@ -92,4 +92,39 @@ Content-Type: application/json
 x-api-key: f470e0cf151674b21c7e373bfbb82dc807a9adf2c11a2c987bef31559fa49b9369856b2bfe4ec2eb8fd79b904afe2c1b469e6bb47ad6606a63e1e2c9be92456f
 
 {
+}
+
+### get all product
+GET {{url_dev}}/
+Content-Type: application/json
+x-api-key: f470e0cf151674b21c7e373bfbb82dc807a9adf2c11a2c987bef31559fa49b9369856b2bfe4ec2eb8fd79b904afe2c1b469e6bb47ad6606a63e1e2c9be92456f
+
+{
+
+}
+
+@product_id = 681b04efe1db8b3949b1aa12
+### get product detail
+GET {{url_dev}}/{{product_id}}
+Content-Type: application/json
+x-api-key: f470e0cf151674b21c7e373bfbb82dc807a9adf2c11a2c987bef31559fa49b9369856b2bfe4ec2eb8fd79b904afe2c1b469e6bb47ad6606a63e1e2c9be92456f
+
+{
+
+}
+
+### update product
+PATCH {{url_dev}}/{{product_id}}
+Content-Type: application/json
+x-api-key: f470e0cf151674b21c7e373bfbb82dc807a9adf2c11a2c987bef31559fa49b9369856b2bfe4ec2eb8fd79b904afe2c1b469e6bb47ad6606a63e1e2c9be92456f
+x-client-id: 67f958ec32f6de3241fa3173
+authorization: {{jwt}}
+
+{
+    "product_type": "Clothing",
+    "product_attributes": {
+      "brand": "MRM VietNam 001"
+    },
+    "product_name": "Băng Quấn Bảo Vệ Khuỷu Tay Co Giãn Tốt Tiện Dụng Khi Chơi Thể Thao Cho Nam",
+    "product_price": null
 }

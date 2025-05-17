@@ -8,12 +8,15 @@ router.get(
   "/search/:keySearch",
   asyncHandler(productController.getListSearchProduct)
 );
-
+router.get("", asyncHandler(productController.findAllProduct));
+router.get("/:product_id", asyncHandler(productController.findProduct));
 //check authencation
 router.use(authencation);
 
 //create product
 router.post("/create", asyncHandler(productController.createProduct));
+// update product
+router.patch("/:productId", asyncHandler(productController.updateProduct));
 
 router.post(
   "/publish/:id",
