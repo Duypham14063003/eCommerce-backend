@@ -24,22 +24,6 @@ Hệ thống backend mạnh mẽ và bảo mật cho ứng dụng thương mại
 - **Xác thực**: JWT + bcrypt
 - **Khác**: dotenv, cors, morgan, nodemon
 
----
-
-## 📂 Cấu trúc thư mục
-
-├── src/
-│ ├── controllers/
-│ ├── models/
-│ ├── routes/
-│ ├── middlewares/
-│ └── utils/
-├── server.js
-├── package.json
-└── README.md
-
----
-
 ## ⚙️ Cách chạy dự án
 
 ```bash
