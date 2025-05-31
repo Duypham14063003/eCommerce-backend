@@ -1,0 +1,73 @@
+@url_dev = http://localhost:3055/v1/api/discount
+@jwt = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2Y5NThlYzMyZjZkZTMyNDFmYTMxNzMiLCJlbWFpbCI6Im5nb2NkdXkwOEBnbWFpbC5jb20iLCJpYXQiOjE3NDg2ODA1NDMsImV4cCI6MTc0ODg1MzM0M30.RxxB_F7vwvB4uWKvE9g22LPzG5OlR16IaFwjWXY-cyA
+###
+// taoj moi discount
+POST {{url_dev}}
+Content-Type: application/json
+x-api-key: f470e0cf151674b21c7e373bfbb82dc807a9adf2c11a2c987bef31559fa49b9369856b2bfe4ec2eb8fd79b904afe2c1b469e6bb47ad6606a63e1e2c9be92456f
+x-client-id: 67f958ec32f6de3241fa3173
+authorization: {{jwt}}
+
+{
+  "name": "name percentage",
+  "description": "description",
+  "type": "percentage",
+  "value": 10,
+  "max_value": 30000,
+  "code": "SHOP-1133",
+  "start_date": "2025-05-31 09:00:00",
+  "end_date": "2025-06-28 09:00:00",
+  "max_uses": 100,
+  "uses_count": 0,
+  "users_used": [],
+  "max_uses_per_user": 1,
+  "min_order_value": 200000,
+  "created_by": {},
+  "is_active": true,
+  "applies_to": "all",
+  "product_ids": [
+    "681b04efe1db8b3949b1aa12",
+    "6811f7878d50f53674798a9b"
+  ]
+}
+
+###
+// lay danh sach discount
+GET {{url_dev}}/list_product_code?code=SHOP-1133&shopId=67f958ec32f6de3241fa3173&page=1&limit=50
+Content-Type: application/json
+x-api-key: f470e0cf151674b21c7e373bfbb82dc807a9adf2c11a2c987bef31559fa49b9369856b2bfe4ec2eb8fd79b904afe2c1b469e6bb47ad6606a63e1e2c9be92456f
+# x-client-id: 67f958ec32f6de3241fa3173
+# authorization: {{jwt}}
+
+{
+
+}
+
+// lay all danh sach discount cua shop
+###
+GET  {{url_dev}}?shopId=67f958ec32f6de3241fa3173&page=1&limit=50
+Content-Type: application/json
+x-api-key: f470e0cf151674b21c7e373bfbb82dc807a9adf2c11a2c987bef31559fa49b9369856b2bfe4ec2eb8fd79b904afe2c1b469e6bb47ad6606a63e1e2c9be92456f
+x-client-id: 67f958ec32f6de3241fa3173
+authorization: {{jwt}}
+
+{}
+
+###
+// post amount discount
+POST {{url_dev}}/amount
+Content-Type: application/json
+x-api-key: f470e0cf151674b21c7e373bfbb82dc807a9adf2c11a2c987bef31559fa49b9369856b2bfe4ec2eb8fd79b904afe2c1b469e6bb47ad6606a63e1e2c9be92456f
+
+{
+  "codeId": "SHOP-1133",
+  "userId": 2,
+  "shopId": "67f958ec32f6de3241fa3173",
+  "products": [
+    {
+      "productId": "683ad5235dc96e2a3c7e13de",
+      "quantity": 5,
+      "price": 210000
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 @url_dev = http://localhost:3055/v1/api/product
-@jwt = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2Y5NThlYzMyZjZkZTMyNDFmYTMxNzMiLCJlbWFpbCI6Im5nb2NkdXkwOEBnbWFpbC5jb20iLCJpYXQiOjE3NDc0ODA5NzgsImV4cCI6MTc0NzY1Mzc3OH0.GEL2SPbZpbRhSxXIrnE2VUDyoCoPJNb2cjTQ0CPv5zk
+@jwt = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2Y5NThlYzMyZjZkZTMyNDFmYTMxNzMiLCJlbWFpbCI6Im5nb2NkdXkwOEBnbWFpbC5jb20iLCJpYXQiOjE3NDg2ODA1NDMsImV4cCI6MTc0ODg1MzM0M30.RxxB_F7vwvB4uWKvE9g22LPzG5OlR16IaFwjWXY-cyA
 ###
 POST {{url_dev}}/create
 Content-Type: application/json
@@ -8,7 +8,7 @@ x-client-id: 67f958ec32f6de3241fa3173
 authorization: {{jwt}}
 
 {
-  "product_name": "Áo sơ mi nam tay ngắn",
+  "product_name": "Áo sơ mi nam tay dài",
   "product_description": "High quality",
   "product_price": 100,
   "product_shop": "67f958ec32f6de3241fa3173",
@@ -66,7 +66,7 @@ authorization: {{jwt}}
 {
 }
 ### publish product for shop by id product
-@id =681b04efe1db8b3949b1aa12
+@id =683ad5235dc96e2a3c7e13de
 POST {{url_dev}}/publish/{{id}}
 Content-Type: application/json
 x-api-key: f470e0cf151674b21c7e373bfbb82dc807a9adf2c11a2c987bef31559fa49b9369856b2bfe4ec2eb8fd79b904afe2c1b469e6bb47ad6606a63e1e2c9be92456f

@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 
 const { Types } = mongoose;
 
-const convertToObjectId = (id) => Types.ObjectId(id);
+const convertToObjectId = (id) => new Types.ObjectId(id);
 
 const getInfoData = ({ fileds = [], object = {} }) => {
   return _.pick(object, fileds);
@@ -49,4 +49,5 @@ module.exports = {
   removeUndefinedObject,
   updateNestedObjectParser,
   convertToObjectId,
+  getSelectData,
 };

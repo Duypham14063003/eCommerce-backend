@@ -12,7 +12,7 @@ var apiKeySchema = new mongoose.Schema(
     discount_code: { type: String, required: true },
     discount_start_date: { type: Date, required: true },
     discount_end_date: { type: Date, required: true },
-    discount_max_users: { type: Number, required: true },
+    discount_max_uses: { type: Number, required: true },
     discount_uses_count: { type: Number, required: true },
     discount_users_used: { type: Array, default: [] },
     discount_max_uses_per_user: { type: Number, required: true },

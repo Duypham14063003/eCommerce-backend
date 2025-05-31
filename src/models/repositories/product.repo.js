@@ -87,6 +87,14 @@ const searchProductByUser = async (keySearch) => {
   return result; // Ensure the function returns the result
 };
 
+/**
+ * ???
+ * limt : 50
+ * page = 2
+ * skip = 1 * 50 = 50
+ * if page = 3
+ * ship = 2 *50 = 100
+ */
 const findAllProduct = async ({ limit, sort, page, filter, select }) => {
   const skip = (page - 1) * limit;
   const sortBy = sort === "ctime" ? { _id: -1 } : { _id: 1 };
