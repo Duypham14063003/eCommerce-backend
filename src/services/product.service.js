@@ -79,7 +79,12 @@ class ProductFactory {
       sort,
       page,
       filter,
-      select: { product_name: 1, product_price: 1, product_thumb: 1 },
+      select: {
+        product_name: 1,
+        product_price: 1,
+        product_thumb: 1,
+        product_shop: 1,
+      },
     });
   }
 

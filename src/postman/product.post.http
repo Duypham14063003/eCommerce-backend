@@ -1,6 +1,6 @@
 @url_dev = http://localhost:3055/v1/api/product
-@jwt = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2Y5NThlYzMyZjZkZTMyNDFmYTMxNzMiLCJlbWFpbCI6Im5nb2NkdXkwOEBnbWFpbC5jb20iLCJpYXQiOjE3NDg2ODA1NDMsImV4cCI6MTc0ODg1MzM0M30.RxxB_F7vwvB4uWKvE9g22LPzG5OlR16IaFwjWXY-cyA
-###
+@jwt = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2Y5NThlYzMyZjZkZTMyNDFmYTMxNzMiLCJlbWFpbCI6Im5nb2NkdXkwOEBnbWFpbC5jb20iLCJpYXQiOjE3NDg5NDQxMTEsImV4cCI6MTc0OTExNjkxMX0.0958_q33J-v6XVvD-yCa8YJCpbPuycDJp8koq1y6Ct0
+### get list cart user
 POST {{url_dev}}/create
 Content-Type: application/json
 x-api-key: f470e0cf151674b21c7e373bfbb82dc807a9adf2c11a2c987bef31559fa49b9369856b2bfe4ec2eb8fd79b904afe2c1b469e6bb47ad6606a63e1e2c9be92456f
@@ -95,12 +95,13 @@ x-api-key: f470e0cf151674b21c7e373bfbb82dc807a9adf2c11a2c987bef31559fa49b9369856
 }
 
 ### get all product
-GET {{url_dev}}/
+GET {{url_dev}}
 Content-Type: application/json
 x-api-key: f470e0cf151674b21c7e373bfbb82dc807a9adf2c11a2c987bef31559fa49b9369856b2bfe4ec2eb8fd79b904afe2c1b469e6bb47ad6606a63e1e2c9be92456f
 
 {
-
+    "page": 1,
+    "limit": 10
 }
 
 @product_id = 681b04efe1db8b3949b1aa12

@@ -1,0 +1,67 @@
+@url  = http://localhost:3055/v1/api/cart
+@jwt = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2Y5NThlYzMyZjZkZTMyNDFmYTMxNzMiLCJlbWFpbCI6Im5nb2NkdXkwOEBnbWFpbC5jb20iLCJpYXQiOjE3NDg5NDQxMTEsImV4cCI6MTc0OTExNjkxMX0.0958_q33J-v6XVvD-yCa8YJCpbPuycDJp8koq1y6Ct0
+### them san pham vao gio hang
+POST {{url}}
+Content-Type: application/json
+x-api-key: f470e0cf151674b21c7e373bfbb82dc807a9adf2c11a2c987bef31559fa49b9369856b2bfe4ec2eb8fd79b904afe2c1b469e6bb47ad6606a63e1e2c9be92456f
+x-client-id: 67f958ec32f6de3241fa3173
+authorization: {{jwt}}
+
+{
+  "userId": "113",
+  "product": {
+    "productId": "681b04efe1db8b3949b1aa12",
+    "shopId": "67f958ec32f6de3241fa3173",
+    "quantity": 4,
+    "name": "Băng Quấn Bảo Vệ Khuỷu Tay Co Giãn Tốt Tiện Dụng Khi Chơi Thể Thao Cho Na",
+    "price": 1234
+  }
+}
+
+### xóa sản phẩm trong giỏ hàng
+DELETE {{url}}
+Content-Type: application/json
+x-api-key: f470e0cf151674b21c7e373bfbb82dc807a9adf2c11a2c987bef31559fa49b9369856b2bfe4ec2eb8fd79b904afe2c1b469e6bb47ad6606a63e1e2c9be92456f
+x-client-id: 67f958ec32f6de3241fa3173
+authorization: {{jwt}}
+
+{
+  "userId":"113",
+  "productId":"681b04efe1db8b3949b1aa12"
+}
+
+### get all product in cart
+GET {{url}}?userId=113
+Content-Type: application/json
+x-api-key: f470e0cf151674b21c7e373bfbb82dc807a9adf2c11a2c987bef31559fa49b9369856b2bfe4ec2eb8fd79b904afe2c1b469e6bb47ad6606a63e1e2c9be92456f
+x-client-id: 67f958ec32f6de3241fa3173
+authorization: {{jwt}}
+
+{
+}
+
+### update product in cart
+POST {{url}}/update
+Content-Type: application/json
+x-api-key: f470e0cf151674b21c7e373bfbb82dc807a9adf2c11a2c987bef31559fa49b9369856b2bfe4ec2eb8fd79b904afe2c1b469e6bb47ad6606a63e1e2c9be92456f
+x-client-id: 67f958ec32f6de3241fa3173
+authorization: {{jwt}}
+
+{
+  "userId": "113",
+  "shop_order_ids": [
+    {
+      "shopId": "67f958ec32f6de3241fa3173",
+      "item_products": [
+        {
+          "quantity": 10,
+          "price": 1234,
+          "shopId": "67f958ec32f6de3241fa3173",
+          "old_quantity": 4,
+          "productId": "681b04efe1db8b3949b1aa12"
+        }
+      ],
+      "version": 2000
+    }
+  ]
+}

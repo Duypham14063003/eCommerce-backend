@@ -1,7 +1,7 @@
 const { findById } = require("../keytoken.model");
 const { clothing, electronic, product } = require("../product.model");
 const { Types } = require("mongoose");
-const { unGetSelectData } = require("../../utils/index");
+const { unGetSelectData, convertToObjectId } = require("../../utils/index");
 
 const findAllDraftProducts = async ({ query, limit, skip }) => {
   return queryAllProductsShop({ query, limit, skip });
@@ -131,6 +131,14 @@ const findProduct = async ({ product_id, unSelect }) => {
   return productdetail;
 };
 
+const getProductById = async (product_id) => {
+  console.log("product_id in getProductById::", product_id);
+  return await product
+    .findOne({ _id: convertToObjectId(product_id) })
+    .collation({ locale: "en", strength: 2 })
+    .lean();
+};
+
 module.exports = {
   findAllDraftProducts,
   publishProductByShop,
@@ -140,4 +148,5 @@ module.exports = {
   findAllProduct,
   findProduct,
   updateProductById,
+  getProductById,
 };
