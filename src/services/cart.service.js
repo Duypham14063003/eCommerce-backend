@@ -50,7 +50,7 @@ class CartService {
       shop_order_ids[0]?.item_products[0];
     // check product
     const foundProduct = await getProductById(productId);
-    if (!product) {
+    if (!foundProduct) {
       throw new NotFoundError("Product not found");
     }
 

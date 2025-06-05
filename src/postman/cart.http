@@ -54,10 +54,10 @@ authorization: {{jwt}}
       "shopId": "67f958ec32f6de3241fa3173",
       "item_products": [
         {
-          "quantity": 10,
+          "quantity": 9,
           "price": 1234,
           "shopId": "67f958ec32f6de3241fa3173",
-          "old_quantity": 4,
+          "old_quantity": 11,
           "productId": "681b04efe1db8b3949b1aa12"
         }
       ],

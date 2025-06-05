@@ -133,10 +133,12 @@ const findProduct = async ({ product_id, unSelect }) => {
 
 const getProductById = async (product_id) => {
   console.log("product_id in getProductById::", product_id);
-  return await product
-    .findOne({ _id: convertToObjectId(product_id) })
+  const products = await product
+    .findById(convertToObjectId(product_id))
     .collation({ locale: "en", strength: 2 })
     .lean();
+  console.log("products in getProductById::", products);
+  return products;
 };
 
 module.exports = {
