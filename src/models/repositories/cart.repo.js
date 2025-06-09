@@ -56,10 +56,18 @@ const getListUserCart = async ({ userId }) => {
   // VD: +userID = Number(userId)
   return await Cart.findOne({ cart_userId: +userId }).lean();
 };
+
+const findCartById = async (cartId) => {
+  return await Cart.findOne({
+    _id: convertToObjectId(cartId),
+    cart_state: "active",
+  }).lean();
+};
 module.exports = {
   createUserCart,
   isCartExists,
   updateUserCartQuanity,
   deleteUserCart,
   getListUserCart,
+  findCartById,
 };
