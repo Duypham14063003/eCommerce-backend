@@ -2,7 +2,8 @@ const { BadRequestError, NotFoundError } = require("../core/error.res");
 const { findCartById } = require("../models/repositories/cart.repo");
 const { checkProductByServer } = require("../models/repositories/product.repo");
 const { getDiscountAmount } = require("./discount.service");
-
+const { acquireLock, releaseLock } = require("./redis.service");
+const Order = require("../models/order.model");
 class checkoutService {
   /**
    * {
@@ -107,7 +108,58 @@ class checkoutService {
         userId,
         shop_order_ids,
       });
+
+    //check lai mot lan nua xem vuot ton kho hay khong
+    const products = shop_order_ids_new.flatmap((item) => item.item_products);
+    console.log("[1]:", products);
+    const acquireProduct = [];
+    for (let i = 0; i < products.length; i++) {
+      const { productId, quantity } = products[i];
+      const keyLock = await acquireLock(productId, quantity, cartId);
+      acquireProduct.push(keyLock ? true : false);
+      if (keyLock) {
+        await releaseLock(keyLock);
+      }
+    }
+
+    // check lai neu co 1 san pham het hang trong kho
+    if (acquireProduct.includes(false)) {
+      throw new BadRequestError(
+        "mot so san pham da het hang trong kho, vui long kiem tra lai"
+      );
+    }
+
+    const newOrder = await Order.create({
+      order_userId: userId,
+      order_checkout: checkout_order,
+      order_shipping: user_address,
+      order_payment: user_payment,
+      order_products: shop_order_ids_new,
+      order_trackingNumber: `#${Math.floor(Math.random() * 1000000000)}`,
+    });
+
+    // tH: neeus thanh cong thi remove product co trong gui hang
+
+    if (newOrder) {
+      // remove product in my cart
+    }
+
+    return newOrder;
   }
+
+  /**
+   * 1. query order [user]
+   */
+  static async getOrdersByUser() {}
+
+  // query order by id [user]
+  static async getOneOrdersByUser() {}
+
+  // cancel order[user]
+  static async cancelOrderByUser() {}
+
+  // update order status [Shop | Admin]
+  static async updateOrderStatusByShop() {}
 }
 
 module.exports = checkoutService;
